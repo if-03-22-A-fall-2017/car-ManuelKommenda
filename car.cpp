@@ -7,7 +7,9 @@
 #define MAX_ACCERATION_RATE_JEEP 3.14
 #define MIN_ACCERATION_RATE -8
 
-#define MAX_SPEED_AIXAM
+#define MAX_SPEED_AIXAM 45
+#define MAX_SPEED_FIAT 170
+#define MAX_SPEED_JEEP 196
 
 int round(double speed);
 
@@ -151,10 +153,33 @@ int get_speed(Car car){
 }
 void accelerate(Car car){
   if (car->type == AIXAM) {
-    if (car->speed + 3.6 + car->acceleration_rate <= ) {
-      /* code */
+    if (car->speed + 3.6 + car->acceleration_rate <= MAX_SPEED_AIXAM) {
+      car->speed = car->speed + 3.6 * car->acceleration_rate;
+    }
+    else{
+      car->speed = MAX_SPEED_AIXAM;
     }
   }
+
+  if (car->type == FIAT_MULTIPLA) {
+    if (car->speed + 3.6 * car->acceleration_rate <= MAX_SPEED_FIAT) {
+      car->speed = car->speed + 3.6 * car->acceleration_rate;
+    }
+    else{
+      car->speed = MAX_SPEED_FIAT;
+    }
+  }
+
+  if(car->type == JEEP){
+    if (car->speed + 3.6 * car->acceleration_rate <= MAX_SPEED_JEEP) {
+      car->speed = car->speed + 3.6 * car->acceleration_rate;
+    }
+    else{
+      car->speed = MAX_SPEED_JEEP;
+    }
+  }
+
+
 }
 int round(double speed){
   int rounded = (speed + 0.5);

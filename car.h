@@ -23,7 +23,7 @@ enum type get_type(Car car);
 enum color get_color(Car car);
 double get_fill_level(Car car);
 double get_acceleration_rate(Car car);
-void set_acceleration_rate(Car car, int acceleration_rate);
+void set_acceleration_rate(Car car, double acceleration_rate);
 int get_speed(Car car);
 void accelerate(Car car);
 
